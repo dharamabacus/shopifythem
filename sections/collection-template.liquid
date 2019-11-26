@@ -73,11 +73,11 @@
       <div class="{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
         <div class="page-width">
           <div class="filters-toolbar">
-			 <h1 class="">
-              {{ collection.title }}
-          </h1>
-            <div class="filters-toolbar__item-wrapper">
-              {% if section.settings.tags_enable %}
+            <div class="filters-toolbar__item-0">
+               <h2>{{ collection.title }}</h2>
+            </div>
+            <div class="filters-toolbar__item filters-toolbar__item--count">
+			{% if section.settings.tags_enable %}
                 {% unless collection.all_tags.size == 0 %}
                   <div class="filters-toolbar__item-child">
                     <label class="filters-toolbar__label select-label" for="FilterTags">{{ 'collections.filters.title_tags' | t }}</label>
@@ -113,9 +113,6 @@
                   </div>
                 </div>
               {% endif %}
-            </div>
-
-            <div class="filters-toolbar__item filters-toolbar__item--count">
               <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
             </div>
           </div>
