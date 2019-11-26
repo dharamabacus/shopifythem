@@ -81,7 +81,167 @@
 </style>
 
 <footer class="site-footer" role="contentinfo">
-  <div class="page-width">
+ <!-- main content start here -->
+ <div class="page-width">
+	<div class="flex--row-colum-5">
+		<div class="flex--item fill--w-30">
+			<a href="#"><img src="https://cdn.shopify.com/s/files/1/0254/2944/2607/t/1/assets/footer-logo.svg"/></a>
+			{%- if social_icons -%}
+          <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
+            {%- if settings.social_facebook_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_facebook_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-facebook' %}
+                  <span class="icon__fallback-text">Facebook</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_twitter_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_twitter_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-twitter' %}
+                  <span class="icon__fallback-text">Twitter</span>
+                </a>
+              </li>
+            {%- endif -%}
+			 {%- if settings.social_instagram_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_instagram_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-instagram' %}
+                  <span class="icon__fallback-text">Instagram</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_pinterest_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_pinterest_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-pinterest' %}
+                  <span class="icon__fallback-text">Pinterest</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_tumblr_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_tumblr_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-tumblr' %}
+                  <span class="icon__fallback-text">Tumblr</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_snapchat_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_snapchat_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-snapchat' %}
+                  <span class="icon__fallback-text">Snapchat</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_youtube_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_youtube_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-youtube' %}
+                  <span class="icon__fallback-text">YouTube</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if settings.social_vimeo_link != blank -%}
+              <li>
+                <a class="social-icons__link" href="{{ settings.social_vimeo_link | escape }}" aria-describedby="a11y-external-message">
+                  {% include 'icon-vimeo' %}
+                  <span class="icon__fallback-text">Vimeo</span>
+                </a>
+              </li>
+            {%- endif -%}
+            {%- if request.page_type == 'blog' or request.page_type == 'article' -%}
+              <li>
+                <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
+                  {% include 'icon-rss' %}
+                  <span class="icon__fallback-text">RSS</span>
+                </a>
+              </li>
+            {%- endif -%}
+          </ul>
+        {%- else -%}
+          <div class="small--hide">
+            <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
+            <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
+          </div>
+        {%- endif -%}
+			<p>&copy 2019. KAZI</p>
+		</div>
+		<div class="flex--item fill--w-10">
+			<h3>Kazi</h3>
+			<ul>
+				<li><a href="#">Wholesale</a></li>
+				<li><a href="#">Custom Orders</a></li>
+				<li><a href="#">Our Story</a></li>
+				<li><a href="#">Journal</a></li>
+			</ul>
+		</div>
+		<div class="flex--item fill--w-10">
+			<h3>Shipment</h3>
+			<ul>
+				<li><a href="#">Shipping & Returns</a></li>
+				<li><a href="#">Exchanges</a></li>
+				<li><a href="#">FAQs</a></li>
+				<li><a href="#">Gift Cards</a></li>
+			</ul>
+		</div>
+		<div class="flex--item fill--w-20">
+			<h3>Get In Touch</h3>
+			<p>Call Us (858) 333-8484</p>
+			<p>Email us</p>
+			<p>100 West 35th Street, Suite G <br>National City, CA 91950 USA</p>
+		</div>
+		<div class="flex--item fill--w-30">
+			<h3>Get Latest Updates</h3>
+				<div class="newsletter-section">
+					{% form 'customer', id: formId, novalidate: 'novalidate', class: 'contact-form form-single-field' %}
+			  {%- if form.posted_successfully? -%}
+				<p class="form-message form-message--success" tabindex="-1" data-form-status>
+				  {{ 'general.newsletter_form.confirmation' | t }}
+				</p>
+			  {%- endif -%}
+			  <input type="hidden" name="contact[tags]" value="newsletter">
+			  <div class="input-group {% if form.errors %} input-group--error{% endif %}">
+				<input type="email"
+				  name="contact[email]"
+				  id="{{ formId }}-email"
+				  class="input-group__field{% if form.errors %} input--error{% endif %}"
+				  value="{{ form.email }}"
+				  placeholder="{{ 'general.newsletter_form.email_placeholder' | t }}"
+				  aria-label="{{ 'general.newsletter_form.email_placeholder' | t }}"
+				  aria-required="true"
+				  autocorrect="off"
+				  autocapitalize="off"
+				  {% if form.errors %}
+					aria-invalid="true"
+					aria-describedby="{{ formId }}-email-error"
+					data-form-status
+				  {% endif %}
+				  >
+				<span class="input-group__btn">
+				  <button type="submit" class="btn" name="commit" id="Subscribe">
+					<span>{{ 'general.newsletter_form.submit' | t }}</span>
+				  </button>
+				</span>
+			  </div>
+			  {%- if form.errors contains 'email' -%}
+				<span id="{{ formId }}-email-error" class="input-error-message">
+				  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+				  {% include 'icon-error' %}
+				  <span>{{ form.errors.translated_fields['email'] | capitalize }} {{ form.errors.messages['email'] }}.</span>
+				</span>
+			  {%- endif -%}
+			{% endform %}
+			</div>
+			<svg width="97" height="129" viewBox="0 0 97 129" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" clip-rule="evenodd" d="M96.3422 0.685791H0.875V96.153H96.3422V0.685791ZM46.6197 107.002H27.695V111.341H46.6197V107.002ZM42.1598 115.68H27.695V120.02H42.1598V115.68ZM46.6197 124.359H27.695V128.699H46.6197V124.359ZM59.1257 112.908C59.1257 114.234 61.0844 114.746 63.3747 115.319L63.3866 115.322C66.9103 116.225 71.27 117.343 71.27 122.129C71.27 125.444 69.0702 129 62.8021 129C59.2161 129 56.1725 127.825 54.0028 125.565L53.7918 125.324L56.3231 121.828L56.6546 122.19C57.408 123.033 59.5777 124.992 62.9829 124.992C65.7855 124.992 66.7799 123.696 66.7799 122.491C66.7799 120.894 64.6705 120.351 62.2296 119.749C58.8243 118.905 54.5753 117.82 54.5753 113.149C54.5753 109.292 57.86 106.61 62.5912 106.61C65.8457 106.61 68.6182 107.695 70.6673 109.684L70.9084 109.925L68.3771 113.27L68.0757 112.968C66.5991 111.492 64.5198 110.678 62.2597 110.678C60.3913 110.678 59.1257 111.582 59.1257 112.908ZM15.3397 120.713V107.002H19.7997V128.699H15.6411L5.30482 114.535V128.699H0.875V107.002H5.21442L15.3397 120.713ZM77.4175 107.002H96.3422V111.341H89.1099V128.699H84.68V111.341H77.4175V107.002ZM70.3066 28.0783C70.3066 28.0783 64.9124 35.0998 70.3066 59.2679C73.4105 72.3464 73.1091 82.984 70.3367 91.8136H5.24542V5.02516H26.9425C24.14 13.8547 23.8386 24.4923 26.9425 37.5708C32.3367 61.739 26.9425 68.7604 26.9425 68.7604C42.1004 73.6422 48.2479 64.5716 48.6095 53.3313L48.6396 43.5074C48.9711 32.2671 55.1186 23.1965 70.3066 28.0783ZM59.458 32.1465C59.458 33.6533 60.6634 34.8587 62.1702 34.8587C63.6769 34.8587 64.8823 33.6533 64.8823 32.1465C64.8823 30.6398 63.6769 29.4344 62.1702 29.4344C60.6634 29.4344 59.458 30.6398 59.458 32.1465Z" fill="black"/>
+				</svg>
+		</div>
+	</div>
+ </div>
+  <!--<div class="page-width">
     <div class="site-footer__content">
       {%- for block in section.blocks -%}
 
@@ -171,93 +331,9 @@
       {%- endfor -%}
     </div>
   </div>
-
-  <hr class="site-footer__hr">
-
-  <div class="page-width">
+  <!--<div class="page-width">
     <div class="grid grid--no-gutters small--text-center">
       <div class="grid__item one-half small--one-whole">
-        {%- if social_icons -%}
-          <ul class="list--inline site-footer__social-icons social-icons site-footer__icon-list">
-            {%- if settings.social_facebook_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_facebook_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-facebook' %}
-                  <span class="icon__fallback-text">Facebook</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_twitter_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_twitter_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-twitter' %}
-                  <span class="icon__fallback-text">Twitter</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_pinterest_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_pinterest_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-pinterest' %}
-                  <span class="icon__fallback-text">Pinterest</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_instagram_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_instagram_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-instagram' %}
-                  <span class="icon__fallback-text">Instagram</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_tumblr_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_tumblr_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-tumblr' %}
-                  <span class="icon__fallback-text">Tumblr</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_snapchat_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_snapchat_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-snapchat' %}
-                  <span class="icon__fallback-text">Snapchat</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_youtube_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_youtube_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-youtube' %}
-                  <span class="icon__fallback-text">YouTube</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if settings.social_vimeo_link != blank -%}
-              <li>
-                <a class="social-icons__link" href="{{ settings.social_vimeo_link | escape }}" aria-describedby="a11y-external-message">
-                  {% include 'icon-vimeo' %}
-                  <span class="icon__fallback-text">Vimeo</span>
-                </a>
-              </li>
-            {%- endif -%}
-            {%- if request.page_type == 'blog' or request.page_type == 'article' -%}
-              <li>
-                <a class="social-icons__link" href="{{ shop.url }}{{ blog.url }}.atom">
-                  {% include 'icon-rss' %}
-                  <span class="icon__fallback-text">RSS</span>
-                </a>
-              </li>
-            {%- endif -%}
-          </ul>
-        {%- else -%}
-          <div class="small--hide">
-            <small class="site-footer__copyright-content">&copy; {{ 'now' | date: "%Y" }}, {{ shop.name | link_to: routes.root_url }}</small>
-            <small class="site-footer__copyright-content site-footer__copyright-content-powered-by">{{ powered_by_link }}</small>
-          </div>
-        {%- endif -%}
       </div>
 
       <div class="grid__item one-half small--one-whole">
@@ -281,7 +357,7 @@
         <small class="site-footer__copyright-content site-footer__copyright-content--powered-by">{{ powered_by_link }}</small>
       </div>
     </div>
-  </div>
+  </div>-->
 </footer>
 
 
