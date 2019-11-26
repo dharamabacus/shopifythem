@@ -25,7 +25,7 @@
     {%- endif -%}
 
     {% if section.settings.show_collection_image and collection.image %}
-      <!--<div class="collection-hero">
+      <div class="collection-hero">
         <div class="collection-hero__image ratio-container lazyload js"
              data-bgset="{% include 'bgset', image: collection.image %}"
              data-sizes="auto"
@@ -35,8 +35,9 @@
           <div class="collection-hero__image" style="background-image: url({{ collection.image | img_url: '2048x600', crop: 'top' }});"></div>
         </noscript>
         <div class="collection-hero__title-wrapper">
+         
         </div>
-      </div>-->
+      </div>
       {% if is_filter_by_available == false and section.settings.sort_enable == false %}
         <div class="page-width">
           <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
@@ -66,15 +67,16 @@
           {% endif %}
         </div>
       </div>
-	 
     {% endif %}
 
     {% if is_filter_by_available or section.settings.sort_enable %}
-      <div class="filters-toolbar-wrapper{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
+      <div class="{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
         <div class="page-width">
           <div class="filters-toolbar">
+			 <h1 class="">
+              {{ collection.title }}
+          </h1>
             <div class="filters-toolbar__item-wrapper">
-			    <h1 class="collection-hero__title page-width">{{ collection.title }}</h1>
               {% if section.settings.tags_enable %}
                 {% unless collection.all_tags.size == 0 %}
                   <div class="filters-toolbar__item-child">
