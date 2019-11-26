@@ -8299,8 +8299,18 @@ ul.feeds-list {
     display: flex;
     flex: 16%;
     flex-grow: 1;
+	margin-top:-1px;
+	overflow:hidden;
     flex-shrink: 1;
     flex-basis: 16%;
+	img{
+		transition:all 0.30s ease-out;
+		&:hover{
+			cursor:pointer;
+			transform:scale(1.2);
+			transition:all 0.30s eae-out;
+		}
+	}
 }
 	
 }
