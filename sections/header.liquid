@@ -323,7 +323,9 @@
         {% endif %}
       </ul>
     </nav>
-	<div class="nav-collection">
+  </header>
+  <!-- navigation collection start -->
+  <div class="nav-collection">
 		<div class="page-width">
 			<ul class="cl--navigation">
 				{% for link in linklists.main-menu.links %}
@@ -332,8 +334,7 @@
 			</ul>
 		</div>
 	</div>
-  </header>
-
+<!-- navigation collection end --->
   {% if section.settings.align_logo == 'center' %}
   <nav class="small--hide border-bottom" id="AccessibleNav" role="navigation">
     {% include 'site-nav', linklist: section.settings.main_linklist, wrapper_class: 'site-nav--centered' %}
