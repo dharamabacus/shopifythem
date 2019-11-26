@@ -323,6 +323,15 @@
         {% endif %}
       </ul>
     </nav>
+	<div class="nav-collection">
+		<div class="page-width">
+			<ul class="cl--navigation">
+				{% for link in linklists.main-menu.links %}
+				<li><a href="{{ link.url }}">{{ link.title }}</a></li>
+			{% endfor %}
+			</ul>
+		</div>
+	</div>
   </header>
 
   {% if section.settings.align_logo == 'center' %}
