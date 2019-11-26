@@ -24,8 +24,8 @@
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
 
-    <!--{% if section.settings.show_collection_image and collection.image %}
-      <div class="collection-hero">
+    {% if section.settings.show_collection_image and collection.image %}
+      <!--<div class="collection-hero">
         <div class="collection-hero__image ratio-container lazyload js"
              data-bgset="{% include 'bgset', image: collection.image %}"
              data-sizes="auto"
@@ -37,7 +37,7 @@
         <div class="collection-hero__title-wrapper">
          
         </div>
-      </div>
+      </div>-->
       {% if is_filter_by_available == false and section.settings.sort_enable == false %}
         <div class="page-width">
           <span class="filters-toolbar__product-count">{{ 'collections.general.items_with_count' | t: count: collection.products_count }}</span>
@@ -67,7 +67,7 @@
           {% endif %}
         </div>
       </div>
-    {% endif %}-->
+    {% endif %}
 
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
