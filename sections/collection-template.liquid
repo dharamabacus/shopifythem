@@ -24,7 +24,7 @@
       {%- assign is_filter_by_available = true -%}
     {%- endif -%}
 
-    {% if section.settings.show_collection_image and collection.image %}
+    <!--{% if section.settings.show_collection_image and collection.image %}
       <div class="collection-hero">
         <div class="collection-hero__image ratio-container lazyload js"
              data-bgset="{% include 'bgset', image: collection.image %}"
@@ -67,7 +67,7 @@
           {% endif %}
         </div>
       </div>
-    {% endif %}
+    {% endif %}-->
 
     {% if is_filter_by_available or section.settings.sort_enable %}
       <div class="{% if is_filter_by_available %} filters-toolbar--has-filter{% endif %}">
