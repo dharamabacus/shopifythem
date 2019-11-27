@@ -164,17 +164,7 @@
               {% endfor %}
             </select>
 
-            {% if section.settings.show_quantity_selector %}
-              <div class="product-form__controls-group">
-                <div class="product-form__item">
-                  <label for="Quantity-{{ section.id }}">{{ 'products.product.quantity' | t }}</label>
-                  <input type="number" id="Quantity-{{ section.id }}"
-                    name="quantity" value="1" min="1" pattern="[0-9]*"
-                    class="product-form__input product-form__input--quantity" data-quantity-input
-                  >
-                </div>
-              </div>
-            {% endif %}
+           
 
             <div class="product-form__error-message-wrapper product-form__error-message-wrapper--hidden{% if section.settings.enable_payment_button %} product-form__error-message-wrapper--has-payment-button{% endif %}" data-error-message-wrapper role="alert">
               <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
@@ -187,6 +177,17 @@
                     {%- if section.settings.enable_payment_button %} product-form__item--payment-button {%- endif -%}
                     {%- if product.has_only_default_variant %} product-form__item--no-variants {%- endif -%}"
               >
+                 {% if section.settings.show_quantity_selector %}
+              
+          <div class="mobileqty">
+    <input type='button' value='-' class='qtyminus' field='quantity' onclick="TextBox_AddToIntValue('product-quantity-{{product.id}}',-1)" />
+    
+      <input type='text' name='quantity' value='1' class='qty' id="product-quantity-{{product.id}}"/>
+    
+    <input type='button' value='+' class='qtyplus' field='quantity' onclick="TextBox_AddToIntValue('product-quantity-{{product.id}}',+1)" />
+	
+	
+        </div>  {% endif %}			  
                 <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
