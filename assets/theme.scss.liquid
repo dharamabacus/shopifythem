@@ -8511,6 +8511,7 @@ h1.product-single__title {
 .product-single{
 	.product-form__item--no-variants {
     display: flex;
+	padding:0;
     justify-content: flex-start;
     flex-flow: row;
 	.mobileqty {
@@ -8592,10 +8593,9 @@ p {
     color: #9D8D81;
     text-align: left;
     border-radius: 0;
-    padding: 20px 15px;
+    padding: 20px 0px;
     cursor: pointer;
     margin-top: 0;
-    margin-bottom: 9px;
     padding-right: 40px;
     transition: 0.25s all;
     position: relative;
@@ -8609,7 +8609,13 @@ p {
 .ziehharmonika h3::before {
 	content: url(https://cdn.shopify.com/s/files/1/0254/2944/2607/t/1/assets/icon-arrow-down.svg);
     position: absolute;
-    right: 20px;
+	transition:all 0.40s ease-in;
+    right:15px;
+}
+
+.ziehharmonika h3.active::before {
+    transform: rotate(180deg);
+	transition:all 0.40s ease-in;;
 }
 
 .ziehharmonika h3.alignLeft {
@@ -8621,7 +8627,7 @@ p {
 	border-radius:0;
 	border:none;
 	text-align: left;
-	padding:20x;
+	padding:20px;
 	box-sizing:border-box;
 	margin-bottom: 9px;
 }
