@@ -5306,4 +5306,9 @@ $(document).ready(function() {
 		});
 	});
 
+$(".site-header__account").click(function(){
+  $("#min-drop-down").toggle();
+});
+
+
 $(theme.init);
