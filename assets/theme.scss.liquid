@@ -8585,31 +8585,75 @@ p {
 
 /*===== bootstrap accordian style ====*/
 
-.panel-heading {
-  padding: 0;
-	border:0;
+/* @author Tim himself */
+
+.ziehharmonika h3 {
+	background: #fff;
+    color: #9D8D81;
+    text-align: left;
+    border-radius: 0;
+    padding: 20px 15px;
+    cursor: pointer;
+    margin-top: 0;
+    margin-bottom: 9px;
+    padding-right: 40px;
+    transition: 0.25s all;
+    position: relative;
+    border-bottom: 1px solid #ACACAC;
+    font-family: Muli,sans-serif;
+    margin-bottom: 0;
+    font-size: 22px;
+    font-weight: 400;
 }
-.panel-title>a, .panel-title>a:active{
-	display:block;
-	padding:15px;
-  color:#555;
-  font-size:16px;
-  font-weight:bold;
-	text-transform:uppercase;
-	letter-spacing:1px;
-  word-spacing:3px;
-	text-decoration:none;
+
+.ziehharmonika h3::before {
+	content: url(https://cdn.shopify.com/s/files/1/0254/2944/2607/t/1/assets/icon-arrow-down.svg);
+    position: absolute;
+    right: 20px;
 }
-.panel-heading  a:before {
-   font-family: 'Glyphicons Halflings';
-   content: "\e114";
-   float: right;
-   transition: all 0.5s;
+
+.ziehharmonika h3.alignLeft {
+	padding-left: 35px;
 }
-.panel-heading.active a:before {
-	-webkit-transform: rotate(180deg);
-	-moz-transform: rotate(180deg);
-	transform: rotate(180deg);
+.ziehharmonika > div {
+	display: none;
+	background: #fff;
+	border-radius:0;
+	border:none;
+	text-align: left;
+	padding:20x;
+	box-sizing:border-box;
+	margin-bottom: 9px;
+}
+.ziehharmonika .arrowDown {
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 13.0px 7.5px 0 7.5px;
+	border-color: #272e35 transparent transparent transparent;
+	position: absolute;
+	bottom: 0;
+	left: 40px;
+	transition: 0.25s all;
+	opacity: 0;
+}
+.ziehharmonika .active .arrowDown {
+	bottom: -13px;
+	border-color: #009641 transparent transparent transparent;
+	opacity: 1;
+}
+.ziehharmonika .collapseIcon {
+	position: absolute;
+	right: 20px;
+	top: 45%;
+	font-size: 25px;
+	font-weight: 300;
+	-ms-transform: translate(0, -50%);
+	    transform: translate(0, -50%);
+}
+.ziehharmonika .collapseIcon.alignLeft {
+	right: initial;
+	left: 20px;
 }
 
 
