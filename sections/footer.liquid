@@ -171,12 +171,17 @@
 		</div>
 		<div class="flex--item fill--w-10">
 			<h3>Kazi</h3>
-			<ul>
+      <ul>
+          {% for link in linklists.footer-menu.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+      </ul>
+			<!-- <ul>
 				<li><a href="#">Wholesale</a></li>
 				<li><a href="#">Custom Orders</a></li>
 				<li><a href="#">Our Story</a></li>
 				<li><a href="#">Journal</a></li>
-			</ul>
+			</ul> -->
 		</div>
 		<div class="flex--item fill--w-10">
 			<h3>Shipment</h3>
