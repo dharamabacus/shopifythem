@@ -176,21 +176,14 @@
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
       </ul>
-			<!-- <ul>
-				<li><a href="#">Wholesale</a></li>
-				<li><a href="#">Custom Orders</a></li>
-				<li><a href="#">Our Story</a></li>
-				<li><a href="#">Journal</a></li>
-			</ul> -->
 		</div>
 		<div class="flex--item fill--w-10">
 			<h3>Shipment</h3>
-			<ul>
-				<li><a href="#">Shipping & Returns</a></li>
-				<li><a href="#">Exchanges</a></li>
-				<li><a href="#">FAQs</a></li>
-				<li><a href="#">Gift Cards</a></li>
-			</ul>
+      <ul>
+          {% for link in linklists.footer-widget-navigation.links %}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {% endfor %}
+      </ul>
 		</div>
 		<div class="flex--item fill--w-20">
 			<h3>Get In Touch</h3>
