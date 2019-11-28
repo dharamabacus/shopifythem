@@ -5307,7 +5307,7 @@ $(document).ready(function() {
 	});
 
 $(".site-header__account").click(function(){
-  $("#min-drop-down").toggle();
+  $("#min-drop-down").toggle(300);
 });
 
 
